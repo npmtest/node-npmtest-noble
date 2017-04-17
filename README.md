@@ -1,7 +1,7 @@
-# test coverage for  [noble (v1.8.0)](https://github.com/sandeepmistry/noble)  [![npm package](https://img.shields.io/npm/v/npmtest-noble.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-noble) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-noble.svg)](https://travis-ci.org/npmtest/node-npmtest-noble)
+# test coverage for  [noble (v1.8.1)](https://github.com/sandeepmistry/noble)  [![npm package](https://img.shields.io/npm/v/npmtest-noble.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-noble) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-noble.svg)](https://travis-ci.org/npmtest/node-npmtest-noble)
 #### A Node.js BLE (Bluetooth Low Energy) central library.
 
-[![NPM](https://nodei.co/npm/noble.png?downloads=true)](https://www.npmjs.com/package/noble)
+[![NPM](https://nodei.co/npm/noble.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/noble)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-noble/tree/alpha)|
 |--:|:--|
@@ -9,11 +9,17 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-noble/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-noble/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-noble/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-noble/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-noble/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-noble/build/coverage.html/index.html)
+- [https://npmtest.github.io/node-npmtest-noble/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-noble/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-noble/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-noble%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-noble/build/test-report.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-noble/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-noble/build/coverage.html/index.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-noble/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-noble%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-noble/build/apidoc.html)
+- [https://npmtest.github.io/node-npmtest-noble/build/test-report.html](https://npmtest.github.io/node-npmtest-noble/build/test-report.html)
+
+[![test-report](https://npmtest.github.io/node-npmtest-noble/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-noble/build/test-report.html)
+
+- [https://npmdoc.github.io/node-npmdoc-noble/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-noble/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-noble/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-noble/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-noble/build/screenCapture.npmPackageListing.svg)
 
@@ -27,8 +33,7 @@
 
 {
     "author": {
-        "name": "Sandeep Mistry",
-        "email": "sandeep.mistry@gmail.com"
+        "name": "Sandeep Mistry"
     },
     "browser": {
         "./lib/resolve-bindings.js": "./lib/resolve-bindings-web.js"
@@ -53,13 +58,13 @@
     },
     "directories": {},
     "dist": {
-        "shasum": "6fea67f6f6b46dd9704e29549603a1b3c56d305b",
-        "tarball": "https://registry.npmjs.org/noble/-/noble-1.8.0.tgz"
+        "shasum": "efe880812b7251afaaadb4fe83753c1302a673f6",
+        "tarball": "https://registry.npmjs.org/noble/-/noble-1.8.1.tgz"
     },
     "engines": {
         "node": ">=0.8"
     },
-    "gitHead": "18c51f0feed477849dbb3d9c58f19dddfe32632a",
+    "gitHead": "320e6198f22bcad2e193a3eda6efb0070e51c31f",
     "homepage": "https://github.com/sandeepmistry/noble",
     "keywords": [
         "bluetooth",
@@ -72,8 +77,7 @@
     "main": "./index.js",
     "maintainers": [
         {
-            "name": "sandeepmistry",
-            "email": "sandeep.mistry@gmail.com"
+            "name": "sandeepmistry"
         }
     ],
     "name": "noble",
@@ -88,7 +92,6 @@
         "freebsd",
         "win32"
     ],
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/sandeepmistry/noble.git"
@@ -97,7 +100,7 @@
         "pretest": "jshint *.js lib/. test/.",
         "test": "mocha -R spec test/*.js"
     },
-    "version": "1.8.0"
+    "version": "1.8.1"
 }
 ```
 
