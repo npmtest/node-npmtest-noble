@@ -1,0 +1,1423 @@
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-noble/node_modules/noble/ws-slave.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-noble">npmtest-noble (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-noble/node_modules/noble/ws-slave.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">2.29% <small>(4 / 175)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 24)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">2.29% <small>(4 / 175)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-noble/node_modules/noble/</a> » ws-slave.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tbody><tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* jshint loopfunc: true */
+var events = require('events');
+&nbsp;
+var debug = require('debug')('slave');
+var WebSocket = require('ws');
+&nbsp;
+<span class="cstat-no" title="statement not covered">var noble = require('./index');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">var serverMode = !process.argv[2];</span>
+<span class="cstat-no" title="statement not covered">var port = 0xB1e;</span>
+<span class="cstat-no" title="statement not covered">var host = process.argv[2];</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered">var ws;</span>
+<span class="cstat-no" title="statement not covered">var wss;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">if (serverMode) {</span>
+<span class="cstat-no" title="statement not covered">  console.log('noble - ws slave - server mode');</span>
+<span class="cstat-no" title="statement not covered">  wss = new WebSocket.Server({</span>
+    port: 0xB1e
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  wss.on('connection', <span class="fstat-no" title="function not covered">function(ws_) {</span></span>
+<span class="cstat-no" title="statement not covered">    console.log('ws -&gt; connection');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">    ws = ws_;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">    sendEvent({</span>
+      type: 'stateChange',
+      state: noble.state
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered">    ws.on('message', onMessage);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">    ws.on('close', <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">      console.log('ws -&gt; close');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">      noble.stopScanning();</span>
+    });
+  });
+} else {
+<span class="cstat-no" title="statement not covered">  ws = new WebSocket('ws://' + host + ':' + port);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">  ws.on('open', <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">    console.log('ws -&gt; open');</span>
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  ws.on('message', <span class="fstat-no" title="function not covered">function(message) {</span></span>
+<span class="cstat-no" title="statement not covered">    onMessage(message);</span>
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  ws.on('close', <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">    console.log('ws -&gt; close');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">    noble.stopScanning();</span>
+  });
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered">var peripherals = {};</span>
+&nbsp;
+// TODO: open/close ws on state change
+&nbsp;
+<span class="fstat-no" title="function not covered">function sendEvent(event) {</span>
+<span class="cstat-no" title="statement not covered">  var message = JSON.stringify(event);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">  console.log('ws -&gt; send: ' + message);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">  var clients = serverMode ? wss.clients : [ws];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">  for (var i = 0; i &lt; clients.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">    clients[i].send(message);</span>
+  }
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered">var onMessage = <span class="fstat-no" title="function not covered">function(message) {</span></span>
+<span class="cstat-no" title="statement not covered">  console.log('ws -&gt; message: ' + message);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">  var command = JSON.parse(message);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">  var action = command.action;</span>
+<span class="cstat-no" title="statement not covered">  var peripheralUuid = command.peripheralUuid;</span>
+<span class="cstat-no" title="statement not covered">  var serviceUuids = command.serviceUuids;</span>
+<span class="cstat-no" title="statement not covered">  var serviceUuid = command.serviceUuid;</span>
+<span class="cstat-no" title="statement not covered">  var characteristicUuids = command.characteristicUuids;</span>
+<span class="cstat-no" title="statement not covered">  var characteristicUuid = command.characteristicUuid;</span>
+<span class="cstat-no" title="statement not covered">  var data = command.data ? new Buffer(command.data, 'hex') : null;</span>
+<span class="cstat-no" title="statement not covered">  var withoutResponse = command.withoutResponse;</span>
+<span class="cstat-no" title="statement not covered">  var broadcast = command.broadcast;</span>
+<span class="cstat-no" title="statement not covered">  var notify = command.notify;</span>
+<span class="cstat-no" title="statement not covered">  var descriptorUuid = command.descriptorUuid;</span>
+<span class="cstat-no" title="statement not covered">  var handle = handle;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">  var peripheral = peripherals[peripheralUuid];</span>
+<span class="cstat-no" title="statement not covered">  var service = null;</span>
+<span class="cstat-no" title="statement not covered">  var characteristic = null;</span>
+<span class="cstat-no" title="statement not covered">  var descriptor = null;</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered">  if (peripheral &amp;&amp; serviceUuid) {</span>
+<span class="cstat-no" title="statement not covered">    var services = peripheral.services;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">    for (var i in services) {</span>
+<span class="cstat-no" title="statement not covered">      if (services[i].uuid === serviceUuid) {</span>
+<span class="cstat-no" title="statement not covered">        service = services[i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        if (characteristicUuid) {</span>
+<span class="cstat-no" title="statement not covered">          var characteristics = service.characteristics;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">          for (var j in characteristics) {</span>
+<span class="cstat-no" title="statement not covered">            if (characteristics[j].uuid === characteristicUuid) {</span>
+<span class="cstat-no" title="statement not covered">              characteristic = characteristics[j];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">              if (descriptorUuid) {</span>
+<span class="cstat-no" title="statement not covered">                var descriptors = characteristic.descriptors;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">                for (var k in descriptors) {</span>
+<span class="cstat-no" title="statement not covered">                  if (descriptors[k].uuid === descriptorUuid) {</span>
+<span class="cstat-no" title="statement not covered">                    descriptor = descriptors[k];</span>
+<span class="cstat-no" title="statement not covered">                    break;</span>
+                  }
+                }
+              }
+<span class="cstat-no" title="statement not covered">              break;</span>
+            }
+          }
+        }
+<span class="cstat-no" title="statement not covered">        break;</span>
+      }
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered">  if (action === 'startScanning') {</span>
+<span class="cstat-no" title="statement not covered">    noble.startScanning(serviceUuids, command.allowDuplicates);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'stopScanning') {</span>
+<span class="cstat-no" title="statement not covered">    noble.stopScanning();</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'connect') {</span>
+<span class="cstat-no" title="statement not covered">    peripheral.connect();</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'disconnect') {</span>
+<span class="cstat-no" title="statement not covered">    peripheral.disconnect();</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'updateRssi') {</span>
+<span class="cstat-no" title="statement not covered">    peripheral.updateRssi();</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'discoverServices') {</span>
+<span class="cstat-no" title="statement not covered">    peripheral.discoverServices(command.uuids);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'discoverIncludedServices') {</span>
+<span class="cstat-no" title="statement not covered">    service.discoverIncludedServices(serviceUuids);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'discoverCharacteristics') {</span>
+<span class="cstat-no" title="statement not covered">    service.discoverCharacteristics(characteristicUuids);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'read') {</span>
+<span class="cstat-no" title="statement not covered">    characteristic.read();</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'write') {</span>
+<span class="cstat-no" title="statement not covered">    characteristic.write(data, withoutResponse);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'broadcast') {</span>
+<span class="cstat-no" title="statement not covered">    characteristic.broadcast(broadcast);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'notify') {</span>
+<span class="cstat-no" title="statement not covered">    characteristic.notify(notify);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'discoverDescriptors') {</span>
+<span class="cstat-no" title="statement not covered">    characteristic.discoverDescriptors();</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'readValue') {</span>
+<span class="cstat-no" title="statement not covered">    descriptor.readValue();</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'writeValue') {</span>
+<span class="cstat-no" title="statement not covered">    descriptor.writeValue(data);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'readHandle') {</span>
+<span class="cstat-no" title="statement not covered">    peripheral.readHandle(handle);</span>
+  } else <span class="cstat-no" title="statement not covered">if (action === 'writeHandle') {</span>
+<span class="cstat-no" title="statement not covered">    peripheral.writeHandle(handle, data, withoutResponse);</span>
+  }
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered">noble.on('discover', <span class="fstat-no" title="function not covered">function(peripheral) {</span></span>
+<span class="cstat-no" title="statement not covered">  peripherals[peripheral.uuid] = peripheral;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">  peripheral.on('connect', <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">    sendEvent({</span>
+      type: 'connect',
+      peripheralUuid: this.uuid
+    });
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  peripheral.on('disconnect', <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">    sendEvent({</span>
+      type: 'disconnect',
+      peripheralUuid: this.uuid
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered">    for (var i in this.services) {</span>
+<span class="cstat-no" title="statement not covered">      for (var j in this.services[i].characteristics) {</span>
+<span class="cstat-no" title="statement not covered">        for (var k in this.services[i].characteristics[j].descriptors) {</span>
+<span class="cstat-no" title="statement not covered">          this.services[i].characteristics[j].descriptors[k].removeAllListeners();</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered">        this.services[i].characteristics[j].removeAllListeners();</span>
+      }
+<span class="cstat-no" title="statement not covered">      this.services[i].removeAllListeners();</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered">    this.removeAllListeners();</span>
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  peripheral.on('rssiUpdate', <span class="fstat-no" title="function not covered">function(rssi) {</span></span>
+<span class="cstat-no" title="statement not covered">    sendEvent({</span>
+      type: 'rssiUpdate',
+      peripheralUuid: this.uuid,
+      rssi: rssi
+    });
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  peripheral.on('servicesDiscover', <span class="fstat-no" title="function not covered">function(services) {</span></span>
+<span class="cstat-no" title="statement not covered">    var peripheral = this;</span>
+<span class="cstat-no" title="statement not covered">    var serviceUuids = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">    var includedServicesDiscover = <span class="fstat-no" title="function not covered">function(includedServiceUuids) {</span></span>
+<span class="cstat-no" title="statement not covered">      sendEvent({</span>
+        type: 'includedServicesDiscover',
+        peripheralUuid: peripheral.uuid,
+        serviceUuid: this.uuid,
+        includedServiceUuids: includedServiceUuids
+      });
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered">    var characteristicsDiscover = <span class="fstat-no" title="function not covered">function(characteristics) {</span></span>
+<span class="cstat-no" title="statement not covered">      var service = this;</span>
+<span class="cstat-no" title="statement not covered">      var discoveredCharacteristics = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">      var read = <span class="fstat-no" title="function not covered">function(data, isNotification) {</span></span>
+<span class="cstat-no" title="statement not covered">        var characteristic = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        sendEvent({</span>
+          type: 'read',
+          peripheralUuid: peripheral.uuid,
+          serviceUuid: service.uuid,
+          characteristicUuid: characteristic.uuid,
+          data: data.toString('hex'),
+          isNotification: isNotification
+        });
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered">      var write = <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">        var characteristic = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        sendEvent({</span>
+          type: 'write',
+          peripheralUuid: peripheral.uuid,
+          serviceUuid: service.uuid,
+          characteristicUuid: characteristic.uuid
+        });
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered">      var broadcast = <span class="fstat-no" title="function not covered">function(state) {</span></span>
+<span class="cstat-no" title="statement not covered">        var characteristic = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        sendEvent({</span>
+          type: 'broadcast',
+          peripheralUuid: peripheral.uuid,
+          serviceUuid: service.uuid,
+          characteristicUuid: characteristic.uuid,
+          state: state
+        });
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered">      var notify = <span class="fstat-no" title="function not covered">function(state) {</span></span>
+<span class="cstat-no" title="statement not covered">        var characteristic = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        sendEvent({</span>
+          type: 'notify',
+          peripheralUuid: peripheral.uuid,
+          serviceUuid: service.uuid,
+          characteristicUuid: characteristic.uuid,
+          state: state
+        });
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered">      var descriptorsDiscover = <span class="fstat-no" title="function not covered">function(descriptors) {</span></span>
+<span class="cstat-no" title="statement not covered">        var characteristic = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        var discoveredDescriptors = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        var valueRead = <span class="fstat-no" title="function not covered">function(data) {</span></span>
+<span class="cstat-no" title="statement not covered">          var descriptor = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">          sendEvent({</span>
+            type: 'valueRead',
+            peripheralUuid: peripheral.uuid,
+            serviceUuid: service.uuid,
+            characteristicUuid: characteristic.uuid,
+            descriptorUuid: descriptor.uuid,
+            data: data.toString('hex')
+          });
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered">        var valueWrite = <span class="fstat-no" title="function not covered">function(data) {</span></span>
+<span class="cstat-no" title="statement not covered">          var descriptor = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">          sendEvent({</span>
+            type: 'valueWrite',
+            peripheralUuid: peripheral.uuid,
+            serviceUuid: service.uuid,
+            characteristicUuid: characteristic.uuid,
+            descriptorUuid: descriptor.uuid
+          });
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered">        for (var k in descriptors) {</span>
+<span class="cstat-no" title="statement not covered">          descriptors[k].on('valueRead', valueRead);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">          descriptors[k].on('valueWrite', valueWrite);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">          discoveredDescriptors.push(descriptors[k].uuid);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered">        sendEvent({</span>
+          type: 'descriptorsDiscover',
+          peripheralUuid: peripheral.uuid,
+          serviceUuid: service.uuid,
+          characteristicUuid: this.uuid,
+          descriptors: discoveredDescriptors
+        });
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered">      for (var j = 0; j &lt; characteristics.length; j++) {</span>
+<span class="cstat-no" title="statement not covered">        characteristics[j].on('read', read);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        characteristics[j].on('write', write);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        characteristics[j].on('broadcast', broadcast);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        characteristics[j].on('notify', notify);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        characteristics[j].on('descriptorsDiscover', descriptorsDiscover);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">        discoveredCharacteristics.push({</span>
+          uuid: characteristics[j].uuid,
+          properties: characteristics[j].properties
+        });
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered">      sendEvent({</span>
+        type: 'characteristicsDiscover',
+        peripheralUuid: peripheral.uuid,
+        serviceUuid: this.uuid,
+        characteristics: discoveredCharacteristics
+      });
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered">    for (var i in services) {</span>
+<span class="cstat-no" title="statement not covered">      services[i].on('includedServicesDiscover', includedServicesDiscover);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">      services[i].on('characteristicsDiscover', characteristicsDiscover);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">      serviceUuids.push(services[i].uuid);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered">    sendEvent({</span>
+      type: 'servicesDiscover',
+      peripheralUuid: this.uuid,
+      serviceUuids: serviceUuids
+    });
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  peripheral.on('handleRead', <span class="fstat-no" title="function not covered">function(handle, data) {</span></span>
+<span class="cstat-no" title="statement not covered">    sendEvent({</span>
+      type: 'handleRead',
+      peripheralUuid: this.uuid,
+      handle: handle,
+      data: data.toString('hex')
+    });
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  peripheral.on('handleWrite', <span class="fstat-no" title="function not covered">function(handle) {</span></span>
+<span class="cstat-no" title="statement not covered">    sendEvent({</span>
+      type: 'handleWrite',
+      peripheralUuid: this.uuid,
+      handle: handle
+    });
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  peripheral.on('handleNotify', <span class="fstat-no" title="function not covered">function(handle, data) {</span></span>
+<span class="cstat-no" title="statement not covered">    sendEvent({</span>
+      type: 'handleNotify',
+      peripheralUuid: this.uuid,
+      handle: handle,
+      data: data.toString('hex')
+    });
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered">  sendEvent({</span>
+    type: 'discover',
+    peripheralUuid: peripheral.uuid,
+    address: peripheral.address,
+    addressType: peripheral.addressType,
+    connectable: peripheral.connectable,
+    advertisement: {
+      localName: peripheral.advertisement.localName,
+      txPowerLevel: peripheral.advertisement.txPowerLevel,
+      serviceUuids: peripheral.advertisement.serviceUuids,
+      manufacturerData: (peripheral.advertisement.manufacturerData ? peripheral.advertisement.manufacturerData.toString('hex') : null),
+      serviceData: (peripheral.advertisement.serviceData ? peripheral.advertisement.serviceData.toString('hex') : null)
+    },
+    rssi: peripheral.rssi
+  });
+});
+&nbsp;</pre></td></tr>
+</tbody></table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 16:08:49 GMT+0000 (UTC)</div>
+</div>
+
+
+</body></html>
