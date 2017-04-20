@@ -1,4 +1,7 @@
-# test coverage for  [noble (v1.8.1)](https://github.com/sandeepmistry/noble)  [![npm package](https://img.shields.io/npm/v/npmtest-noble.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-noble) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-noble.svg)](https://travis-ci.org/npmtest/node-npmtest-noble)
+# npmtest-noble
+
+#### basic test coverage for  [noble (v1.8.1)](https://github.com/sandeepmistry/noble)  [![npm package](https://img.shields.io/npm/v/npmtest-noble.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-noble) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-noble.svg)](https://travis-ci.org/npmtest/node-npmtest-noble)
+
 #### A Node.js BLE (Bluetooth Low Energy) central library.
 
 [![NPM](https://nodei.co/npm/noble.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/noble)
